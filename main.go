@@ -8,30 +8,12 @@ var gregorian_months = [...]int{0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 3
 
 func JulianToGregorian(day int, month int, year int) (int, int, int) {
 	dayDifference := GregorianJulianDifference(day, month, year);
-	day += dayDifference;
-	if (day > monthsInYear(year, "g")[month]) {
-		day -= monthsInYear(year, "g")[month];
-		month++;
-		if (month > 12) {
-			year++;
-			month = 1;
-		}
-	}
-	return day, month, year;
+	return AddDays(day, month, year, dayDifference, "g");
 }
 
 func GregorianToJulian(day int, month int, year int) (int, int, int) {
 	dayDifference := GregorianJulianDifference(day, month, year)
-	day -= dayDifference;
-	if (day < 1) {
-		month--;
-		if (month < 1) {
-			year--;
-			month = 12;
-		}
-		day += monthsInYear(year, "j")[month];
-	}
-	return day, month, year;
+	return AddDays(day, month, year, -dayDifference, "j");
 }
 
 func GregorianJulianDifference(_ int, month int, year int) int {
