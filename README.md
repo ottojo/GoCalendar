@@ -1,4 +1,5 @@
-# GoCalendar
+[![Build Status](https://travis-ci.org/ottojo/GoCalendar.svg?branch=master)](https://travis-ci.org/ottojo/GoCalendar)
+# GoCalendar 
 ## GoCalendar provides utility to convert dates between the julian and the gregorian calendar.
 
 
